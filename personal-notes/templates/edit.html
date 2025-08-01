@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Edit Note</h1>
+    <form method="post">
+        <textarea name="note" required>{{ note.content }}</textarea>
+        <button type="submit">Save Changes</button>
+        <a href="{{ url_for('index') }}">Cancel</a>
+    </form>
+</div>
+{% endblock %}

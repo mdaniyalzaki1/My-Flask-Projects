@@ -1,4 +1,4 @@
-/* Reset some basic styles */
+Reset some basic styles
 * {
     box-sizing: border-box;
     margin: 0;
@@ -90,9 +90,20 @@ button:hover {
     border-radius: 4px;
     margin-left: 10px;
 }
+.edit-button {
+    background-color: rgb(60, 236, 60);
+    padding: 4px 10px;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    text-decoration: none;
+}
 
 .delete-button:hover {
     background-color: #e60000;
+}
+
+.edit-button:hover {
+    background-color:rgb(30, 174, 30);
 }
 
 .empty {
@@ -101,27 +112,4 @@ button:hover {
     font-style: italic;
     padding: 20px;
 }
-
-.flash-messages {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0;
-}
-
-.flash {
-  position: relative;
-  padding: 10px 15px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  color: white;
-}
-
-.flash.success {
-  background-color: #28a745;
-}
-
-.flash.danger {
-  background-color: #dc3545;
-}
-
 
