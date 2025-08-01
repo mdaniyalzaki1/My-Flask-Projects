@@ -1,115 +1,354 @@
-Reset some basic styles
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
+/* General Body Styles */
 body {
-    background-color: #f9f9f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #f4f7f6; /* Light background */
     color: #333;
     line-height: 1.6;
-    padding: 40px;
-    display: flex;
-    justify-content: center;
 }
 
+/* Container for main content */
 .container {
-    max-width: 600px;
-    width: 100%;
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-h1 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    text-align: center;
-    color: #222;
-}
-
-.note-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 30px;
-}
-
-textarea {
-    resize: vertical;
-    min-height: 80px;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 1rem;
-    transition: border-color 0.2s;
-}
-
-textarea:focus {
-    border-color: #6666ff;
-    outline: none;
-}
-
-button {
-    background-color: #6666ff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 6px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-button:hover {
-    background-color: #4a4aff;
-}
-
-.notes-list {
-    list-style: none;
-    padding-left: 0;
-}
-
-.notes-list li {
-    background: #f1f1f1;
-    padding: 12px 16px;
-    margin-bottom: 10px;
-    border-radius: 6px;
+/* Navigation Bar */
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #2c3e50; /* Dark blue/grey */
+    padding: 1rem 2rem;
+    color: #ecf0f1; /* Light text */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.delete-button {
-    background-color: #ff4d4d;
-    padding: 6px 10px;
-    font-size: 0.9rem;
-    border-radius: 4px;
-    margin-left: 10px;
-}
-.edit-button {
-    background-color: rgb(60, 236, 60);
-    padding: 4px 10px;
-    font-size: 0.9rem;
-    border-radius: 4px;
+.nav-left a,
+.nav-right a {
+    color: #ecf0f1;
     text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
-.delete-button:hover {
-    background-color: #e60000;
+.nav-left a:hover,
+.nav-right a:hover {
+    color: #3498db; /* Blue on hover */
 }
 
-.edit-button:hover {
-    background-color:rgb(30, 174, 30);
+.nav-left a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-left: 0; /* No left margin for the first item */
 }
 
-.empty {
+/* Headings */
+h1 {
+    color: #2c3e50;
     text-align: center;
-    color: #999;
-    font-style: italic;
-    padding: 20px;
+    margin-bottom: 1.5rem;
+    font-size: 2.2rem;
 }
 
+/* Forms (Login, Signup, Add Note) */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical; /* Allow vertical resizing */
+}
+
+button[type="submit"] {
+    background-color: #3498db; /* Blue */
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #2980b9; /* Darker blue */
+}
+
+/* Form specific styles for the add note form */
+.note-form {
+    flex-direction: row;
+    align-items: flex-end; /* Align textarea and button at the bottom */
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    border: 1px dashed #e0e0e0;
+}
+
+.note-form textarea {
+    flex-grow: 1; /* Make textarea take available space */
+    min-height: 50px; /* Smaller textarea for adding */
+}
+
+.note-form button[type="submit"] {
+    padding: 0.8rem 1.5rem; /* Consistent button padding */
+    min-width: 100px; /* Ensure button has minimum width */
+}
+
+/* Links within forms (e.g., "Don't have an account?") */
+form p {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+}
+
+form p a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+form p a:hover {
+    text-decoration: underline;
+}
+
+/* Notes List */
+.notes-list {
+    list-style: none;
+    padding: 0;
+}
+
+.notes-list li {
+    background-color: #fafafa;
+    border: 1px solid #eee;
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    word-break: break-word; /* Break long words */
+}
+
+.notes-list li:last-child {
+    margin-bottom: 0;
+}
+
+.notes-list li .edit-button,
+.notes-list li .delete-button {
+    margin-left: 1rem; /* Space between text and buttons */
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-decoration: none; /* For the 'a' tag edit button */
+    display: inline-block; /* For the 'a' tag edit button */
+    line-height: 1; /* Ensure consistent height for buttons */
+}
+
+.notes-list li .edit-button {
+    background-color: #2ecc71; /* Green */
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.notes-list li .edit-button:hover {
+    background-color: #27ae60; /* Darker green */
+}
+
+.notes-list li .delete-button {
+    background-color: #e74c3c; /* Red */
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.notes-list li .delete-button:hover {
+    background-color: #c0392b; /* Darker red */
+}
+
+.notes-list .empty {
+    text-align: center;
+    color: #777;
+    font-style: italic;
+    padding: 2rem;
+    border: 1px dashed #ddd;
+    border-radius: 5px;
+    background-color: #fcfcfc;
+}
+
+/* Flash Messages */
+.flash-messages {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.flash {
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    opacity: 1; /* Start opaque for fade-out */
+}
+
+.flash.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.flash.danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.flash.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+/* Footer */
+footer {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background-color: #e9eef2;
+    color: #7f8c8d; /* Grey */
+    text-align: center;
+    font-size: 0.85rem;
+    border-top: 1px solid #dfe6e9;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .nav-left, .nav-right {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+
+    .nav-right a {
+        margin: 0 0.5rem;
+    }
+
+    .container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .notes-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .notes-list li .edit-button,
+    .notes-list li .delete-button {
+        margin-top: 0.5rem;
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .note-form {
+        flex-direction: column;
+    }
+
+    .note-form button[type="submit"] {
+        width: 100%;
+        min-width: unset;
+    }
+}
+
+/* Add these new styles to your existing style.css file */
+
+/* For the "Welcome" message in the navbar */
+.nav-welcome {
+    color: #bdc3c7; /* Lighter grey */
+    margin-right: 1.5rem;
+    font-style: italic;
+}
+
+/* Container for flash messages for better centering and spacing */
+.flash-messages-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Better layout for the notes list items */
+.notes-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.note-content {
+    flex-grow: 1; /* Allows content to take up available space */
+    word-break: break-word; /* Prevents long words from overflowing */
+}
+
+.note-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0; /* Prevents action buttons from wrapping */
+}
+
+/* Ensure forms in the list don't add extra margin */
+.note-actions form {
+    margin-top: 0;
+}
+
+
+/* On smaller screens, stack the note content and actions */
+@media (max-width: 600px) {
+    .notes-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .note-actions {
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .note-actions a, .note-actions form {
+        flex-grow: 1;
+    }
+
+    .note-actions button {
+        width: 100%;
+    }
+}

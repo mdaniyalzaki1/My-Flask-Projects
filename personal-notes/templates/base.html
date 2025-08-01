@@ -4,24 +4,64 @@
     <meta charset="UTF-8">
     <title>Personal Notes</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <style>
-    </style>
 </head>
 <body>
-    {% block content %}{% endblock %}
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="{{ url_for('index') }}">Notes</a>
+    </div>
+    <div class="nav-right">
+      {% if current_user %}
+        <span class="nav-welcome">Welcome, {{ current_user.username }}!</span>
+        <a href="{{ url_for('logout') }}">Logout</a>
+      {% else %}
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('signup') }}">Signup</a>
+      {% endif %}
+    </div>
+  </nav>
 
-    
-    <script>
-  // Auto-dismiss flash messages after 3 seconds
-  setTimeout(function () {
-    const flashMessages = document.querySelectorAll('.flash');
-    flashMessages.forEach(msg => {
-      msg.style.transition = 'opacity 0.5s ease';
-      msg.style.opacity = '0';
-      setTimeout(() => msg.remove(), 500); // remove after fade out
-    });
-  }, 3000); // Wait 3 seconds before fading out
-</script>
+  <div class="content-wrapper">
+    {# Display flashed messages #}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="flash-messages-container">
+          <ul class="flash-messages">
+            {% for category, message in messages %}
+              <li class="flash {{ category }}">
+                {{ message }}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+  </div>
+
+  <footer>
+    © {{ current_year }} MyNotes App. All rights reserved.
+  </footer>
+
+  <script>
+    // Auto-dismiss flash messages after 3 seconds
+    setTimeout(function () {
+      const flashMessages = document.querySelectorAll('.flash');
+      flashMessages.forEach(msg => {
+        msg.style.transition = 'opacity 0.5s ease';
+        msg.style.opacity = '0';
+        setTimeout(() => {
+            // Also fade out the container if it exists
+            if (msg.parentElement.parentElement.classList.contains('flash-messages-container')) {
+                msg.parentElement.parentElement.style.opacity = '0';
+            }
+            // Remove the message after fade out
+            setTimeout(() => msg.remove(), 500);
+        }, 500);
+      });
+    }, 3000); // Wait 3 seconds before fading out
+  </script>
 
 </body>
 </html>
