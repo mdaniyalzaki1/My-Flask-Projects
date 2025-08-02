@@ -24,7 +24,7 @@ A secure, multi-user notes manager where users can register, log in, and manage 
 ---
 
 ### 2. ✅ Todo App (Fully Solo Project)
-My first solo Flask app — a simple and focused to-do list manager that I built completely on my own. No tutorials, no AI. Just me figuring it all out, one feature at a time. 😄
+My first solo Flask app — a simple and focused to-do list manager. 😄
 
 #### Features
 - Add/delete tasks
