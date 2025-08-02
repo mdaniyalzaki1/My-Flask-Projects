@@ -1,4 +1,6 @@
- to my collection of web applications built with **Flask** — a powerful and lightweight Python web framework. This repo showcases my learning journey through hands-on projects, each adding new layers of functionality and depth.
+## My-Flask-Projects
+
+Welcome to my collection of web applications built with **Flask** — a powerful and lightweight Python web framework. This repo showcases my learning journey through hands-on projects, each adding new layers of functionality and depth.
 
 > 🔧 This repo will continue to grow as I build more Flask apps and experiment with new features!
 
